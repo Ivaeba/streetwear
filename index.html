@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streetwear Shop 2026</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page-shell">
+        <header class="hero">
+            <nav class="topbar">
+                <div class="brand-block">
+                    <p class="eyebrow">Drop 2026</p>
+                    <a class="brand" href="#">NO RULES / STREETWEAR</a>
+                </div>
+                <div class="topbar-meta">
+                    <span class="meta-pill">Berlin Energy</span>
+                    <div class="cart-status" onclick="toggleCart()">Cart <span id="cart-count">0.00</span> PLN</div>
+                    <button id="checkout-btn" class="btn btn-primary" style="display:none;" onclick="checkout()">Checkout</button>
+                    <button id="account-btn" class="btn btn-secondary" style="display:none;" onclick="goToAccount()">Account</button>
+                    <button id="logout-btn" class="btn btn-secondary" style="display:none;" onclick="logout()">Logout</button>
+                </div>
+            </nav>
+
+            <div class="hero-grid">
+                <section class="hero-copy">
+                    <p class="hero-kicker">Curated essentials for bold everyday fits</p>
+                    <h1>Streetwear with contrast, rhythm, and attitude.</h1>
+                    <p class="hero-text">
+                        Sharp silhouettes, heavy layers, and clean basics. Explore this season's
+                        edit with live search, fast filtering, and a storefront that feels premium.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="#catalog-section">Shop the drop</a>
+                        <button class="btn btn-secondary" type="button" onclick="filterCategory('Jacket')">See outerwear</button>
+                    </div>
+                </section>
+
+                <aside class="hero-card">
+                    <p class="card-label">Selected mood</p>
+                    <div class="hero-card-main">
+                        <span class="hero-badge">New Season</span>
+                        <h2>Layer first.</h2>
+                        <p>Utility jackets, washed denim, oversized tees, and clean accessories for a stronger silhouette.</p>
+                    </div>
+                    <div class="hero-stats">
+                        <div>
+                            <strong id="product-count">0</strong>
+                            <span>pieces live</span>
+                        </div>
+                        <div>
+                            <strong>24h</strong>
+                            <span>fresh look feel</span>
+                        </div>
+                        <div>
+                            <strong>01</strong>
+                            <span>cart focus</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </header>
+
+        <section class="auth-panel" id="auth-panel">
+            <div class="auth-shell">
+                <div class="auth-header">
+                    <h2>Account access</h2>
+                    <p>Register with your personal data or sign in by email or phone.</p>
+                </div>
+
+                <div class="auth-tabs">
+                    <button id="auth-toggle-register" type="button" class="auth-tab active">Register</button>
+                    <button id="auth-toggle-login" type="button" class="auth-tab">Login</button>
+                </div>
+
+                <div class="auth-forms">
+                    <form id="register-form" class="auth-form">
+                        <div class="auth-field">
+                            <label for="register-firstname">First name</label>
+                            <input id="register-firstname" type="text" required>
+                        </div>
+                        <div class="auth-field">
+                            <label for="register-lastname">Last name</label>
+                            <input id="register-lastname" type="text" required>
+                        </div>
+                        <div class="auth-field">
+                            <label for="register-birthdate">Birth date</label>
+                            <input id="register-birthdate" type="date" required>
+                        </div>
+                        <div class="auth-field">
+                            <label for="register-location">Location</label>
+                            <input id="register-location" type="text" required>
+                        </div>
+                        <div class="auth-field">
+                            <label for="register-email">Email</label>
+                            <input id="register-email" type="email" required>
+                        </div>
+                        <div class="auth-field">
+                            <label for="register-phone">Phone</label>
+                            <input id="register-phone" type="tel" required>
+                        </div>
+                        <div class="auth-field">
+                            <label for="register-password">Password</label>
+                            <input id="register-password" type="password" required>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Create account</button>
+                    </form>
+
+                    <form id="login-form" class="auth-form hidden">
+                        <div class="auth-field">
+                            <label for="login-identifier">Email or phone</label>
+                            <input id="login-identifier" type="text" required>
+                        </div>
+                        <div class="auth-field">
+                            <label for="login-password">Password</label>
+                            <input id="login-password" type="password" required>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Sign in</button>
+                    </form>
+                </div>
+
+                <div class="auth-message" id="auth-message"></div>
+            </div>
+        </section>
+
+        <main class="content-grid" id="catalog-section">
+            <aside class="filters-panel">
+                <div>
+                    <p class="panel-label">Browse</p>
+                    <h3>Find your shape</h3>
+                </div>
+
+                <label class="search-field" for="search-input">
+                    <span>Search</span>
+                    <input type="text" id="search-input" placeholder="Type jacket, hoodie, cargo, sneakers...">
+                </label>
+
+                <div class="filter-group">
+                    <button class="filter-chip active" type="button" data-category="all">All pieces</button>
+                    <button class="filter-chip" type="button" data-category="T-shirt">T-shirts</button>
+                    <button class="filter-chip" type="button" data-category="Hoodie">Hoodies</button>
+                    <button class="filter-chip" type="button" data-category="Jeans">Jeans</button>
+                    <button class="filter-chip" type="button" data-category="Cargo">Cargo</button>
+                    <button class="filter-chip" type="button" data-category="Jacket">Jackets</button>
+                    <button class="filter-chip" type="button" data-category="Sneakers">Sneakers</button>
+                </div>
+
+                <div class="panel-note">
+                    <p>Current filter</p>
+                    <strong id="active-filter-label">All pieces</strong>
+                </div>
+            </aside>
+
+            <section class="catalog-panel">
+                <div class="section-heading">
+                    <div>
+                        <p class="panel-label">Catalog</p>
+                        <h2>Essential pieces built for the street</h2>
+                    </div>
+                    <p class="section-subtitle">Minimal base, strong contrast, quick decisions.</p>
+                </div>
+
+                <section id="product-catalog" class="catalog"></section>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js?v=1"></script>
+</body>
+</html>
